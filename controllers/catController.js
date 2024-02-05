@@ -21,7 +21,7 @@ export const catController = tryCatch( async (req, res) => {
     
   const imagePath = req.files.map(file => {
       return `<img src=${file.path.replace("public", "")} />` 
-    })
+  })
 
   if (pics.length === 0)
    {return next({statusCode:404, message:"Failed to save files"})}
@@ -30,7 +30,7 @@ export const catController = tryCatch( async (req, res) => {
       <div>
         <h2>Here's the cat pictures:</h2>
         ${imagePath.join("")}
-      </div>`)
+      </div>`);
     }
   }
 );

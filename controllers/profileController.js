@@ -13,7 +13,9 @@ export const uploadProfilePic = tryCatch(
       VALUES ($1, $2)
       RETURNING *;
     `;
+
     const { rows: pic } = await pool.query(queryText, [name, path]);
+    
     if (pic.length === 0) {
       return next({statusCode: 404, message:"failed to save data"});
     } else {
